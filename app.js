@@ -5,7 +5,9 @@ var express = require('express'),
     session = require('express-session'),
     config = require('./config/config.js'),
     ConnectMongo = require('connect-mongo')(session),
-    mongoose = require('mongoose').connect(config.dbURL);
+    mongoose = require('mongoose').connect(config.dbURL),
+    passport = require('passport'),
+    FacebookStrategy = require('passport-facebook').Strategy;
 
 app.set('views', path.join(__dirname, 'views'));
 app.engine('html', require('hogan-express'));
@@ -26,6 +28,7 @@ if (env === 'development') {
     }));
 }
 
+require('./auth/passportAuth.js')(passport, FacebookStrategy, config, mongoose);
 
 require('./routes/routes.js')(express, app);
 
