@@ -15,7 +15,7 @@ module.exports = function (express, app) {
     });
 
     router.get('/getcolor', function (req, res, next) {
-        res.send('Fav color', req.session.favColor);
+        res.send('Fav color: ', (req.session.favColor === undefined ? "Not found": req.session.favColor));
     });
 
     app.use('/', router);
