@@ -9,7 +9,7 @@
 	<script>
 	$(function(){
 		var host = '{{config.host}}';
-		var socket = io.connect(host + '/roomlist'); // http://localhost:3000/roomlist
+		var socket = io.connect(host + '/roomlist'); // http://localhost:3000/roomlist    // this is not a route..just a namespace
 
 		socket.on('connect', function(){
 			console.log('Connection Established !');
