@@ -4,7 +4,7 @@
     "fb": {
         "appID": "700565780075083",
         "appSecret": "111100dc7df6c311321fd493e9aaca68",
-        "callbackURL": "https://chatrain.herokuapp.com/auth/facebook/callback"
+        "callbackURL": "http://chatrain.herokuapp.com/auth/facebook/callback"
     },
-    "host": "https://chatrain.herokuapp.com"
+    "host": "http://chatrain.herokuapp.com"
 }
