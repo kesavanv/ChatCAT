@@ -28,9 +28,12 @@ if (env === 'development') {
     }));
 }
 
+app.use(passport.initialize());
+app.use(passport.session());
+
 require('./auth/passportAuth.js')(passport, FacebookStrategy, config, mongoose);
 
-require('./routes/routes.js')(express, app);
+require('./routes/routes.js')(express, app, passport);
 
 app.listen(3000, function () {
     console.log('ChatCAT working on Port 3000');

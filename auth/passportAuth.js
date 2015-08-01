@@ -19,10 +19,10 @@ module.exports = function (passport, FacebookStrategy, config, mongoose) {
     });
 
     passport.use(new FacebookStrategy({
-        clientId: config.fb.appID,
-        clientSecret: config.fb.appSecret,
-        callbackURL: config.fb.callbackURL,
-        profileFields: ['id', 'displayName', 'photos']
+        clientID:config.fb.appID,
+        clientSecret:config.fb.appSecret,
+        callbackURL:config.fb.callbackURL,
+        profileFields:['id', 'displayName', 'photos']
     }, function (accessToken, refreshToken, profile, done) {
         // Check if the user exists in our mongodb DB
         // if not, create one and return the profile
