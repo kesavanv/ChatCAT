@@ -1,4 +1,5 @@
 {
+    "appName": "Chatrain",
     "dbURL": "mongodb://chatcatuser:mychatcat@ds049641.mongolab.com:49641/chatcat",
     "sessionSecret": "LOUYTYIUIONKJUYIUYIYI57565346",
     "fb": {
