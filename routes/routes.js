@@ -3,7 +3,7 @@ module.exports = function (express, app, passport, config, rooms) {
 
     router.get('/', function (req, res, next) {
         var title = 'Welcome to ' + config.appName;
-        res.render('index', {title: title});
+        res.render('index', {title: title, appName: config.appName});
     });
 
     function securePages(req, res, next) {
@@ -23,13 +23,27 @@ module.exports = function (express, app, passport, config, rooms) {
 
     router.get('/chatrooms', securePages, function (req, res, next) {
         var title = config.appName + ' - Chatrooms';
-        res.render('chatrooms', {title: title, user:req.user, config: config});
+        var data = {
+            title: title,
+            appName: config.appName,
+            user:req.user,
+            config: config
+        };
+        res.render('chatrooms', data);
     });
 
     router.get('/room/:id', securePages, function (req, res, next) {
         var title = config.appName + ' - ' + room_name;
         var room_name = findTitle(req.params.id);
-        res.render('room', {title: title, user: req.user, room_number: req.params.id, room_name: room_name, config: config});
+        var data = {
+            title: title,
+            appName: config.appName,
+            user: req.user,
+            room_number: req.params.id,
+            room_name: room_name,
+            config: config
+        };
+        res.render('room', data);
     });
 
     function findTitle (room_id) {
